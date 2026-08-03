@@ -28,11 +28,11 @@ Priorities may change as development progresses.
 ## Version 0.6.0
 - Achievements
 - Streak
-- Currency
 - Daily goals
 - Opt out features
 
 ## Version 0.7.0
+- Currency
 - Theme shop
 
 ## Version 1.0.0
