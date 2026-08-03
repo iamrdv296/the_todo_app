@@ -15,20 +15,24 @@ Priorities may change as development progresses.
 - Deadlines 
 
 ## Version 0.3.0
-- Theme support
+- Subtasks
+- Tags
 
 ## Version 0.4.0
+- Theme support
+
+## Version 0.5.0
 - Settings
 - First stable release
 
-## Version 0.5.0
+## Version 0.6.0
 - Achievements
 - Streak
 - Currency
 - Daily goals
 - Opt out features
 
-## Version 0.6.0
+## Version 0.7.0
 - Theme shop
 
 ## Version 1.0.0
