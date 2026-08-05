@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:the_todo_app/widgets/task_list_widget.dart';
 import 'theme/padding_size.dart';
 import 'widgets/dummy_widget.dart';
 
-const Widget homeWidget = DummyWidget(color: Colors.cyan);
+const Widget homeWidget = TaskListWidget();
 
 void main() {
   runApp(const MyApp());
