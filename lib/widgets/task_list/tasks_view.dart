@@ -23,7 +23,7 @@ class TaskListView extends ConsumerWidget {
 
         FloatingActionButton(
           onPressed: () =>
-              ref.watch(taskListViewModelProvider.notifier).addTask("Task"),
+              ref.read(taskListViewModelProvider.notifier).addTask("Task"),
         ),
       ],
     );
