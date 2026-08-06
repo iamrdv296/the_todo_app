@@ -3,7 +3,7 @@ import 'package:the_todo_app/features/tasks/view/tasks_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'theme/padding_size.dart';
 
-const Widget homeWidget = TaskListView();
+const Widget homeWidget = TasksView();
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
