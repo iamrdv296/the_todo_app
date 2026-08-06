@@ -13,7 +13,7 @@ part of 'tasks_viewmodel.dart';
 final tasksViewModelProvider = TasksViewModelProvider._();
 
 final class TasksViewModelProvider
-    extends $NotifierProvider<TasksViewModel, List<String>> {
+    extends $NotifierProvider<TasksViewModel, List<Task>> {
   TasksViewModelProvider._()
     : super(
         from: null,
@@ -33,27 +33,27 @@ final class TasksViewModelProvider
   TasksViewModel create() => TasksViewModel();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(List<String> value) {
+  Override overrideWithValue(List<Task> value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<List<String>>(value),
+      providerOverride: $SyncValueProvider<List<Task>>(value),
     );
   }
 }
 
-String _$tasksViewModelHash() => r'776102b4742891f01a9d4a7e1240a24d1b06f03e';
+String _$tasksViewModelHash() => r'4821f941d1b6dc28348d7865fe2fb5919a2897c8';
 
-abstract class _$TasksViewModel extends $Notifier<List<String>> {
-  List<String> build();
+abstract class _$TasksViewModel extends $Notifier<List<Task>> {
+  List<Task> build();
   @$mustCallSuper
   @override
   WhenComplete runBuild() {
-    final ref = this.ref as $Ref<List<String>, List<String>>;
+    final ref = this.ref as $Ref<List<Task>, List<Task>>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<List<String>, List<String>>,
-              List<String>,
+              AnyNotifier<List<Task>, List<Task>>,
+              List<Task>,
               Object?,
               Object?
             >;

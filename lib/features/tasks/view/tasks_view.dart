@@ -17,7 +17,7 @@ class TasksView extends ConsumerWidget {
             itemCount: taskList.length,
             separatorBuilder: (context, index) =>
                 SizedBox(height: PaddingSize.small.value),
-            itemBuilder: (context, index) => Card(child: Text(taskList[index])),
+            itemBuilder: (context, index) => Card(child: Text(taskList[index].title)),
           ),
         ),
 
