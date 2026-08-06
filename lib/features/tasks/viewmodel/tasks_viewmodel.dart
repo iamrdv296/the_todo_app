@@ -4,6 +4,8 @@ import 'package:uuid/uuid.dart';
 
 part 'tasks_viewmodel.g.dart';
 
+// TODO: decouple uuid from TasksViewModel
+
 @riverpod
 class TasksViewModel extends _$TasksViewModel {
   final _uuid = const Uuid();
