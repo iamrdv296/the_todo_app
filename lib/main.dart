@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:the_todo_app/widgets/task_list_widget.dart';
+import 'package:the_todo_app/widgets/task_list/tasks_view.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'theme/padding_size.dart';
 import 'widgets/dummy_widget.dart';
 
-const Widget homeWidget = TaskListWidget();
+const Widget homeWidget = TaskListView();
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
