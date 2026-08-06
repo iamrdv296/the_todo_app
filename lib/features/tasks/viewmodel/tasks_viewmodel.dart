@@ -1,9 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'task_list_viewmodel.g.dart';
+part 'tasks_viewmodel.g.dart';
 
 @riverpod
-class TaskListViewModel extends _$TaskListViewModel {
+class TasksViewModel extends _$TasksViewModel {
   @override
   List<String> build() {
     return [];

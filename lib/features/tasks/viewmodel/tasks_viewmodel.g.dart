@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'task_list_viewmodel.dart';
+part of 'tasks_viewmodel.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,28 +9,28 @@ part of 'task_list_viewmodel.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(TaskListViewModel)
-final taskListViewModelProvider = TaskListViewModelProvider._();
+@ProviderFor(TasksViewModel)
+final tasksViewModelProvider = TasksViewModelProvider._();
 
-final class TaskListViewModelProvider
-    extends $NotifierProvider<TaskListViewModel, List<String>> {
-  TaskListViewModelProvider._()
+final class TasksViewModelProvider
+    extends $NotifierProvider<TasksViewModel, List<String>> {
+  TasksViewModelProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'taskListViewModelProvider',
+        name: r'tasksViewModelProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$taskListViewModelHash();
+  String debugGetCreateSourceHash() => _$tasksViewModelHash();
 
   @$internal
   @override
-  TaskListViewModel create() => TaskListViewModel();
+  TasksViewModel create() => TasksViewModel();
 
   /// {@macro riverpod.override_with_value}
   Override overrideWithValue(List<String> value) {
@@ -41,9 +41,9 @@ final class TaskListViewModelProvider
   }
 }
 
-String _$taskListViewModelHash() => r'00330d08a9d68277be3a27c14dd2ea795f6d8aae';
+String _$tasksViewModelHash() => r'776102b4742891f01a9d4a7e1240a24d1b06f03e';
 
-abstract class _$TaskListViewModel extends $Notifier<List<String>> {
+abstract class _$TasksViewModel extends $Notifier<List<String>> {
   List<String> build();
   @$mustCallSuper
   @override

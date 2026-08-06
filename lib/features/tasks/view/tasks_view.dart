@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:the_todo_app/theme/padding_size.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_todo_app/widgets/task_list/task_list_viewmodel.dart';
+import 'package:the_todo_app/features/tasks/viewmodel/tasks_viewmodel.dart';
 
 class TaskListView extends ConsumerWidget {
   const TaskListView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final taskList = ref.watch(taskListViewModelProvider);
+    final taskList = ref.watch(tasksViewModelProvider);
 
     return Column(
       children: [
@@ -23,7 +23,7 @@ class TaskListView extends ConsumerWidget {
 
         FloatingActionButton(
           onPressed: () =>
-              ref.read(taskListViewModelProvider.notifier).addTask("Task"),
+              ref.read(tasksViewModelProvider.notifier).addTask("Task"),
         ),
       ],
     );
