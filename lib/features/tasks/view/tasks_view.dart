@@ -13,9 +13,15 @@ class TasksView extends ConsumerWidget {
 
     return Column(
       children: [
-        Expanded(child: TaskList(taskList: taskList)),
-        FloatingActionButton(onPressed: () => _showAddTaskDialog(context, ref))
-      ]
+        Expanded(
+          child: TaskList(
+            taskList: taskList,
+            onCompletedChanged: (id, value) =>
+                _updateChangedCompletedTask(ref, id, value),
+          ),
+        ),
+        FloatingActionButton(onPressed: () => _showAddTaskDialog(context, ref)),
+      ],
     );
   }
 
@@ -23,8 +29,14 @@ class TasksView extends ConsumerWidget {
     showDialog(
       context: context,
       builder: (context) {
-        return AddTaskModal(onAddTask: ref.read(tasksViewModelProvider.notifier).addTask);
+        return AddTaskModal(
+          onAddTask: ref.read(tasksViewModelProvider.notifier).addTask,
+        );
       },
     );
+  }
+
+  void _updateChangedCompletedTask(WidgetRef ref, String id, bool value) {
+    ref.read(tasksViewModelProvider.notifier).setCompleted(id, value);
   }
 }

@@ -20,4 +20,13 @@ class TasksViewModel extends _$TasksViewModel {
   void removeTask(String id) {
     state = state.where((task) => task.id != id).toList();
   }
+
+  void setCompleted(String id, bool isCompleted) {
+    state = [
+      for (final task in state) 
+        if (task.id == id) 
+          task.copyWith(isCompleted: isCompleted)
+        else task
+    ];
+  }
 }

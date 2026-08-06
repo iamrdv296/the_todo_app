@@ -4,9 +4,14 @@ import 'package:the_todo_app/theme/defaults.dart';
 import 'task_card.dart';
 
 class TaskList extends StatelessWidget {
-  const TaskList({super.key, required this.taskList});
+  const TaskList({
+    super.key,
+    required this.taskList,
+    required this.onCompletedChanged,
+  });
 
   final List<Task> taskList;
+  final void Function(String, bool) onCompletedChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,11 @@ class TaskList extends StatelessWidget {
       separatorBuilder: (context, index) => SizedBox(height: padding_md),
       itemBuilder: (context, index) {
         final task = taskList[index];
-        return TaskCard(title: task.title, isCompleted: task.isCompleted);
+        return TaskCard(
+          title: task.title,
+          isCompleted: task.isCompleted,
+          onCompletedChanged: (value) => onCompletedChanged(task.id, value),
+        );
       },
     );
   }
