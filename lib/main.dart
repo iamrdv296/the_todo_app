@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_todo_app/features/tasks/view/tasks_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'theme/padding_size.dart';
+import 'theme/defaults.dart';
 
 const Widget homeWidget = TasksView();
 
@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PaddingSize paddingSize = .large;
-    final EdgeInsets padding = .all(paddingSize.value);
+    final EdgeInsets padding = .all(padding_bg);
 
     return MaterialApp(
       home: Scaffold(
