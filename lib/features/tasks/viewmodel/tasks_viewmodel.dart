@@ -14,7 +14,7 @@ class TasksViewModel extends _$TasksViewModel {
 
   void addTask(String title) {
     final Uuid uuid = ref.read(uuidProvider);
-    state = [...state, Task(title, id: uuid.v4())];
+    state = [...state, Task(title: title, id: uuid.v4())];
   }
 
   void removeTask(String id) {

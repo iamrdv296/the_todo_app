@@ -47,4 +47,4 @@ final class UuidProvider extends $FunctionalProvider<Uuid, Uuid, Uuid>
   }
 }
 
-String _$uuidHash() => r'9cc3cb5b7e4fcc82c4cf4b80f47b6310d72e4505';
+String _$uuidHash() => r'5585b327904bedec2fa45ef88ab20a69bb6be383';

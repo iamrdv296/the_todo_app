@@ -4,19 +4,13 @@ part 'task.freezed.dart';
 part 'task.g.dart';
 
 @freezed
-@JsonSerializable()
-class Task with _$Task {
-  Task(this.title, {required this.id, this.isCompleted = false});
+abstract class Task with _$Task {
+  const factory Task({
+    required String id,
+    required String title,
+    @Default(false) bool isCompleted,
+  }) = _Task;
 
-  @override
-  final String id;
-
-  @override
-  final String title;
-
-  @override
-  final bool isCompleted;
-
-  factory Task.fromJson(Map<String, Object?> json) => _$TaskFromJson(json);
-  Map<String, Object?> toJson() => _$TaskToJson(this);
+  factory Task.fromJson(Map<String, dynamic> json) =>
+      _$TaskFromJson(json);
 }

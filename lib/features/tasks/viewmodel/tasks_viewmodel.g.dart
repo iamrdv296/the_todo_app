@@ -41,7 +41,7 @@ final class TasksViewModelProvider
   }
 }
 
-String _$tasksViewModelHash() => r'4821f941d1b6dc28348d7865fe2fb5919a2897c8';
+String _$tasksViewModelHash() => r'd265223052d465358df15e62fc76735e631543b9';
 
 abstract class _$TasksViewModel extends $Notifier<List<Task>> {
   List<Task> build();

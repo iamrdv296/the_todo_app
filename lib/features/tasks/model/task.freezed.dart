@@ -22,6 +22,8 @@ mixin _$Task {
 @pragma('vm:prefer-inline')
 $TaskCopyWith<Task> get copyWith => _$TaskCopyWithImpl<Task>(this as Task, _$identity);
 
+  /// Serializes this Task to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -46,7 +48,7 @@ abstract mixin class $TaskCopyWith<$Res>  {
   factory $TaskCopyWith(Task value, $Res Function(Task) _then) = _$TaskCopyWithImpl;
 @useResult
 $Res call({
- String title, String id, bool isCompleted
+ String id, String title, bool isCompleted
 });
 
 
@@ -63,10 +65,10 @@ class _$TaskCopyWithImpl<$Res>
 
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? id = null,Object? isCompleted = null,}) {
-  return _then(Task(
-null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? isCompleted = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -89,10 +91,11 @@ extension TaskPatterns on Task {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Task value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _:
+case _Task() when $default != null:
+return $default(_that);case _:
   return orElse();
 
 }
@@ -110,10 +113,11 @@ case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Task value)  $default,){
 final _that = this;
 switch (_that) {
-case _:
+case _Task():
+return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -130,10 +134,11 @@ case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Task value)?  $default,){
 final _that = this;
 switch (_that) {
-case _:
+case _Task() when $default != null:
+return $default(_that);case _:
   return null;
 
 }
@@ -150,9 +155,10 @@ case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  bool isCompleted)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _:
+case _Task() when $default != null:
+return $default(_that.id,_that.title,_that.isCompleted);case _:
   return orElse();
 
 }
@@ -170,9 +176,10 @@ case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>() {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  bool isCompleted)  $default,) {final _that = this;
 switch (_that) {
-case _:
+case _Task():
+return $default(_that.id,_that.title,_that.isCompleted);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -189,13 +196,87 @@ case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>() {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  bool isCompleted)?  $default,) {final _that = this;
 switch (_that) {
-case _:
+case _Task() when $default != null:
+return $default(_that.id,_that.title,_that.isCompleted);case _:
   return null;
 
 }
 }
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _Task implements Task {
+  const _Task({required this.id, required this.title, this.isCompleted = false});
+  factory _Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
+
+@override final  String id;
+@override final  String title;
+@override@JsonKey() final  bool isCompleted;
+
+/// Create a copy of Task
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TaskCopyWith<_Task> get copyWith => __$TaskCopyWithImpl<_Task>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TaskToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Task&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,title,isCompleted);
+
+@override
+String toString() {
+  return 'Task(id: $id, title: $title, isCompleted: $isCompleted)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
+  factory _$TaskCopyWith(_Task value, $Res Function(_Task) _then) = __$TaskCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, String title, bool isCompleted
+});
+
+
+
+
+}
+/// @nodoc
+class __$TaskCopyWithImpl<$Res>
+    implements _$TaskCopyWith<$Res> {
+  __$TaskCopyWithImpl(this._self, this._then);
+
+  final _Task _self;
+  final $Res Function(_Task) _then;
+
+/// Create a copy of Task
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? isCompleted = null,}) {
+  return _then(_Task(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
 
 }
 
