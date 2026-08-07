@@ -11,32 +11,30 @@ class TasksView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final taskList = ref.watch(tasksViewModelProvider);
 
+    final notifier = ref.read(tasksViewModelProvider.notifier);
+
     return Column(
       children: [
         Expanded(
           child: TaskList(
             taskList: taskList,
-            onChanged: (task) => 
-              ref.read(tasksViewModelProvider.notifier).updateTask(task)
+            onChanged: (task) => notifier.updateTask(task),
+            onDelete: (task) => notifier.removeTask(task),
           ),
         ),
-        FloatingActionButton(onPressed: () => _showAddTaskDialog(context, ref)),
+        FloatingActionButton(onPressed: () => _showAddTaskDialog(context, notifier)),
       ],
     );
   }
 
-  void _showAddTaskDialog(BuildContext context, WidgetRef ref) {
+  void _showAddTaskDialog(BuildContext context, TasksViewModel notifier) {
     showDialog(
       context: context,
       builder: (context) {
         return AddTaskModal(
-          onAddTask: ref.read(tasksViewModelProvider.notifier).addTask,
+          onAddTask: notifier.addTask,
         );
       },
     );
-  }
-
-  void _updateChangedCompletedTask(WidgetRef ref, String id, bool value) {
-    ref.read(tasksViewModelProvider.notifier).setCompleted(id, value);
   }
 }
