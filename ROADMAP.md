@@ -19,21 +19,22 @@ Priorities may change as development progresses.
 - Tags
 
 ## Version 0.4.0
-- Theme support
+- Custom app theme
 
 ## Version 0.5.0
 - Settings
-- First stable release
+- Custom app theme
+- Initial release
 
 ## Version 0.6.0
 - Achievements
-- Streak
+- Streaks
 - Daily goals
 - Opt out features
 
 ## Version 0.7.0
-- Currency
-- Theme shop
+- Currency system
+- Local theme shop
 
 ## Version 1.0.0
 - Dynamic home screen
