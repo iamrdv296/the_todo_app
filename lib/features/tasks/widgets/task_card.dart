@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_todo_app/theme/defaults.dart';
+import 'package:the_todo_app/features/tasks/model/task.dart';
 
 const paddingSize = padding_bg;
 const fontSize = 25.0;
@@ -8,11 +9,10 @@ const textAlignment = Alignment.centerLeft;
 const checkBoxAlignment = Alignment.centerRight;
 
 class TaskCard extends StatelessWidget {
-  const TaskCard({super.key, required this.title, required this.isCompleted, required this.onCompletedChanged});
+  const TaskCard({super.key, required this.task, required this.onChanged});
 
-  final String title;
-  final bool isCompleted;
-  final void Function(bool) onCompletedChanged;
+  final Task task;
+  final ValueChanged<Task> onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +24,23 @@ class TaskCard extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                title,
+                task.title,
                 style: const TextStyle(
                   fontSize: fontSize,
                   fontWeight: fontWeight,
                 ),
               ),
             ),
-            
+
             Checkbox(
-              value: isCompleted,
+              value: task.isCompleted,
               onChanged: (value) {
-                if (value != null) onCompletedChanged(value);
+                if (value != null) onChanged(task.copyWith(isCompleted: value));
               },
             ),
           ],
-        )
-      )
+        ),
+      ),
     );
   }
 }

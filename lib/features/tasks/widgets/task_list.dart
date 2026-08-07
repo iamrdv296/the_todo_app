@@ -7,23 +7,24 @@ class TaskList extends StatelessWidget {
   const TaskList({
     super.key,
     required this.taskList,
-    required this.onCompletedChanged,
+    required this.onChanged,
   });
 
   final List<Task> taskList;
-  final void Function(String, bool) onCompletedChanged;
+  final ValueChanged<Task> onChanged;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       itemCount: taskList.length,
-      separatorBuilder: (context, index) => SizedBox(height: padding_md),
+      separatorBuilder: (context, index) =>
+          SizedBox(height: padding_md),
       itemBuilder: (context, index) {
         final task = taskList[index];
+
         return TaskCard(
-          title: task.title,
-          isCompleted: task.isCompleted,
-          onCompletedChanged: (value) => onCompletedChanged(task.id, value),
+          task: task,
+          onChanged: onChanged,
         );
       },
     );

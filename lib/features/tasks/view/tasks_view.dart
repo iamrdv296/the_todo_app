@@ -16,8 +16,8 @@ class TasksView extends ConsumerWidget {
         Expanded(
           child: TaskList(
             taskList: taskList,
-            onCompletedChanged: (id, value) =>
-                _updateChangedCompletedTask(ref, id, value),
+            onChanged: (task) => 
+              ref.read(tasksViewModelProvider.notifier).updateTask(task)
           ),
         ),
         FloatingActionButton(onPressed: () => _showAddTaskDialog(context, ref)),
