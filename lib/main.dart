@@ -21,6 +21,12 @@ class MyApp extends StatelessWidget {
         body: SafeArea(
           child: Padding(padding: padding, child: homeWidget),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.check), label: "Tasks"),
+            BottomNavigationBarItem(icon: Icon(Icons.lock_clock), label: "Pomodoro")
+          ]
+        ),
       ),
     );
   }
