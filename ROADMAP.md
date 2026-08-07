@@ -12,25 +12,26 @@ Priorities may change as development progresses.
 - Pomodoro / Tasks integration
 - Important tasks
 - Habits
-- Deadlines 
+- Deadlines
 
 ## Version 0.3.0
 - Subtasks
 - Tags
 
 ## Version 0.4.0
-- Custom app theme
+- Custom app themes
+- Keyboard, mouse and touch support
+- Platform-specific interactions
 
 ## Version 0.5.0
 - Settings
-- Custom app theme
-- Initial release
+- Initial public release
 
 ## Version 0.6.0
 - Achievements
 - Streaks
 - Daily goals
-- Opt out features
+- Opt-out features
 
 ## Version 0.7.0
 - Currency system
@@ -39,8 +40,8 @@ Priorities may change as development progresses.
 ## Version 1.0.0
 - Dynamic home screen
 
-## Version 1.1.0 
+## Version 1.1.0
 - Device synchronization
 
 ## Version 1.2.0
-- Custom themes support
+- User-created custom themes
